@@ -131,7 +131,6 @@ def Orchid(rounds, alpha_fair, alpha_th, new_alpha_fair, new_alpha_th,
 
                     if lose_rounds >= upper_lose_rounds:
                         del(mab)
-                        # Choose the better bandit between two mabs (a mab has three resource bandits)
                         optimal_mab = 0
                         optimal_sum = N_bandit_chosen.sum(axis=0)[optimal_mab + 1]
                         for mab_id in range(num_bandit_version):
