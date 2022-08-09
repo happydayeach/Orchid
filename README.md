@@ -1,7 +1,7 @@
 # Orchid: An Online Learning based Resource Partitioning Framework for Job Colocation with Multiple Objectives
 
 
-Orchid is tested on a Ubuntu Server 20.04.4 with Linux 5.4.0 using Python3.8. Please install the following library depencies for running SATORI.
+Orchid is tested on a Ubuntu Server 20.04.4 with Linux 5.4.0 using Python3.8. Please install the following library depencies for running Orchid.
 # Dependencies
 ```
 pip3 install numpy  
