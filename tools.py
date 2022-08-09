@@ -15,10 +15,10 @@ def get_now_cntx_reward(core_list, llc_config, mb_config):
     :return: the performance of two objectives
     """
     # Use Perf tool to get the values of all jobs' selected PMCs
-    features = get_PMCs_value_from_realtime()
+    features, fair_reward, th_reward = get_PMCs_reward_from_realtime()
     # Caculate the mean and standard deviation of features according the rules described in the paper
-    out_dealed_features = cacul(features)
-    return context, context_mean, context_std
+    context = cacul(features)
+    return context, fair_reward, th_reward
 
 
 # Transform the configuration of CPU cores to taskset format, such as [2,4,3] => ["0,1","2,3,4,5","6,7,8"]
@@ -150,7 +150,7 @@ def gen_configs_recursively(u, r, a, NUM_APPS, NUM_UNITS):
         return ret
 
 # Enumerate each resource's configurations
-def gen_nonOverlap_config(NUM_APPS, NUM_UNITS):
+def get_all_config(NUM_APPS, NUM_UNITS):
     core_config = gen_configs_recursively(0, 0, 0, NUM_APPS, NUM_UNITS)
     for i in range(len(core_config)):
         other_source = np.array(core_config[i]).sum()

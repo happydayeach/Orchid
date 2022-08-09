@@ -4,12 +4,10 @@ import os
 import subprocess
 import time
 import numpy as np
-from numpy.linalg import inv
-import itertools
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
-from tools import gen_config, gen_init_config, gen_nonOverlap_config,get_now_cntx_reward
+from tools import gen_config, gen_init_config, get_all_config, get_now_cntx_reward
 from gen_MorpLinUCB import Morp_LinUCB
 
 
@@ -131,6 +129,7 @@ def Orchid(rounds, alpha_fair, alpha_th, new_alpha_fair, new_alpha_th,
 
                     if lose_rounds >= upper_lose_rounds:
                         del(mab)
+                        # Choose the best mab
                         optimal_mab = 0
                         optimal_sum = N_bandit_chosen.sum(axis=0)[optimal_mab + 1]
                         for mab_id in range(num_bandit_version):
@@ -180,7 +179,7 @@ if __name__ == "__main__":
 
 
     # Enumerate each resource's configurations
-    core_arm_orders, llc_arm_orders, mb_arm_orders = gen_nonOverlap_config(NUM_UNITS=NUM_UNITS, NUM_APPS=NUM_APPS)
+    core_arm_orders, llc_arm_orders, mb_arm_orders = get_all_config(NUM_UNITS=NUM_UNITS, NUM_APPS=NUM_APPS)
     # Set paremeters for Orchid
     rounds = 100
     alpha_fair = 0.08

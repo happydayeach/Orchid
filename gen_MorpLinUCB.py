@@ -117,7 +117,6 @@ class Morp_LinUCB():
             cntx = np.array(context_core)
             self.p_c_t_fair[i] = theta_fair.T.dot(cntx) + self.alpha_fair * np.sqrt(cntx.dot(inv(A_fair[i]).dot(cntx)))
             self.p_c_t_th[i] = theta_th.T.dot(cntx) + self.alpha_th * np.sqrt(cntx.dot(inv(A_th[i]).dot(cntx)))
-        core_max = max(self.p_c_t_fair) * max(self.p_c_t_th)
         core_front = fast_non_dominated_sort(self.p_c_t_fair, self.p_c_t_th)[0]
         core_front_objgap = []
         exp_core_fair_max = self.p_c_t_fair.max()
@@ -131,6 +130,7 @@ class Morp_LinUCB():
             core_arms_index = np.random.choice(core_front)
         else:
             core_arms_index = core_front[np.random.choice(np.where(core_front_objgap == min(core_front_objgap))[0])]
+        core_max = self.p_c_t_fair[core_arms_index] * self.p_c_t_th[core_arms_index]
 
 
         # LLC bandits
@@ -144,7 +144,6 @@ class Morp_LinUCB():
             cntx = np.array(context_llc)
             self.p_l_t_fair[i] = theta_fair.T.dot(cntx) + self.alpha_fair * np.sqrt(cntx.dot(inv(A_fair[i]).dot(cntx)))
             self.p_l_t_th[i] = theta_th.T.dot(cntx) + self.alpha_th * np.sqrt(cntx.dot(inv(A_th[i]).dot(cntx)))
-        llc_max = max(self.p_l_t_fair) * max(self.p_l_t_th)
         llc_front = fast_non_dominated_sort(self.p_l_t_fair, self.p_l_t_th)[0]
         llc_front_objgap = []
         exp_llc_fair_max = self.p_l_t_fair.max()
@@ -158,6 +157,7 @@ class Morp_LinUCB():
             llc_arms_index = np.random.choice(llc_front)
         else:
             llc_arms_index = llc_front[np.random.choice(np.where(llc_front_objgap == min(llc_front_objgap))[0])]
+        llc_max = self.p_l_t_fair[llc_arms_index] * self.p_l_t_th[llc_arms_index]
 
 
         # MB bandits
@@ -171,7 +171,6 @@ class Morp_LinUCB():
             cntx = np.array(context_mb)
             self.p_b_t_fair[i] = theta_fair.T.dot(cntx) + self.alpha_fair * np.sqrt(cntx.dot(inv(A_fair[i]).dot(cntx)))
             self.p_b_t_th[i] = theta_th.T.dot(cntx) + self.alpha_th * np.sqrt(cntx.dot(inv(A_th[i]).dot(cntx)))
-        band_max = max(self.p_b_t_fair) * max(self.p_b_t_th)
         band_front = fast_non_dominated_sort(self.p_b_t_fair, self.p_b_t_th)[0]
         band_front_objgap = []
         exp_band_fair_max = self.p_b_t_fair.max()
@@ -185,6 +184,7 @@ class Morp_LinUCB():
             band_arms_index = np.random.choice(band_front)
         else:
             band_arms_index = band_front[np.random.choice(np.where(band_front_objgap == min(band_front_objgap))[0])]
+        band_max = self.p_b_t_fair[band_arms_index] * self.p_b_t_th[band_arms_index]
 
         # Update explore - exploit parameters dynamically
         self.alpha_fair *= self.factor_fair
