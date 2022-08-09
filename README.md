@@ -15,36 +15,11 @@ Click this link to confirm: [https://github.com/intel/intel-cmt-cat][check]
 
 # The benchmark suites evaluated in Orchid
 
-PARSEC 3.0: [https://parsec.cs.princeton.edu/parsec3-doc.htm][PARSEC] 
+PARSEC 3.0: https://parsec.cs.princeton.edu/parsec3-doc.htm
 
-CloudSuite 3.0
-ECP Suite 4.0
+CloudSuite 3.0:https://github.com/parsa-epfl/cloudsuite
 
-
-
-```
-pareto.py : get pareto optimal set.
-tools.py : some functions used to execute instructions.
-train.py : main file used to train algorithm, and there are some functions used to init, update and play bandits.
-```
-# Run
-```
-set parameters in train.py, include:
-    rounds
-    alpha_fair
-    alpha_th
-    factor_fair     
-    factor_th
-    prob
-    upper_subopt_rounds
-    upper_compete_rounds
-run program:
-    python train.py
-```
-# Copyright
-```
-NBJL, Nankai University
-```
+ECP Suite 4.0: https://www.exascaleproject.org/
 
 
-[check]: https://github.com/intel/intel-cmt-cat
+# Run Orchid
