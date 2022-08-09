@@ -17,9 +17,9 @@ Click this link to confirm: https://github.com/intel/intel-cmt-cat.
 
 PARSEC 3.0: https://parsec.cs.princeton.edu/parsec3-doc.htm
 
-CloudSuite 3.0:https://github.com/parsa-epfl/cloudsuite
+CloudSuite 3.0: https://www.cloudsuite.ch/
 
-ECP Suite 4.0: https://www.exascaleproject.org/
+ECP Suite 4.0: https://proxyapps.exascaleproject.org/ecp-proxy-apps-suite/
 
 
 # Run Orchid
