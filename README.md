@@ -11,7 +11,7 @@ apt-get install intel-cmt-cat
 
 Orchid uses the Linux _perf_ to collect runtime status of each job for guiding the quick and smart exploration. 
 Please ensure that Intel CAT, MBA, and taskset tools are supported and active in your system.
-Click this link to confirm: [https://github.com/intel/intel-cmt-cat][check].
+Click this link to confirm: https://github.com/intel/intel-cmt-cat.
 
 # The benchmark suites evaluated in Orchid
 
