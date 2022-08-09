@@ -18,7 +18,7 @@ def get_now_cntx_reward(core_list, llc_config, mb_config):
     features = get_PMCs_value_from_realtime()
     # Caculate the mean and standard deviation of features according the rules described in the paper
     out_dealed_features = cacul(features)
-    return context_mean, context_std
+    return context, context_mean, context_std
 
 
 # Transform the configuration of CPU cores to taskset format, such as [2,4,3] => ["0,1","2,3,4,5","6,7,8"]
