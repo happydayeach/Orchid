@@ -27,7 +27,7 @@ ECP Suite 4.0: https://proxyapps.exascaleproject.org/ecp-proxy-apps-suite/
 ## File Description
 ```
 pareto.py : get pareto optimal set.
-tools.py : some functions used to execute instructions.
+tools.py : some tool functions.
 gen_MorpLinUCB.py: main algorithm of Orchid
 train.py : main file used to make online resource partitioning decisions
 ```
